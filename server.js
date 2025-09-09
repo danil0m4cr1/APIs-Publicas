@@ -5,6 +5,8 @@ const axios = require('axios');
 const app = express();
 const port = 3000;
 
+const accessKey = [chave-de-acesso-aqui] // Chave de acesso para a utilização da IP API
+
 app.use(cors());
 
 // Consulta o CEP
@@ -64,7 +66,7 @@ app.get('/pokemon', async (req, res) => {
 
 // API de Geolocalização por IP
 async function getGeoIP(ip) {
-    const url = `http://api.ipapi.com/api/${ip}?access_key=5ed307aec8ab45f82627359881450b43`;
+    const url = `http://api.ipapi.com/api/${ip}?access_key=${accessKey}`;
     const response = await axios.get(url);
     return response.data;
 }
